@@ -1,30 +1,54 @@
-import { DataTypes , Model, Database, MySQLConnector } from './volca.ts';
+/**
+ *
+ * @Author https://github.com/eveningkid
+ * @Documentation https://eveningkid.com/denodb-docs/
+ * @Repository https://github.com/eveningkid/denodb
+ *
+ *
+ */
 
-const connector = new MySQLConnector({
-  database: 'volca',
-  host: '127.0.0.1',
-  username: 'root',
-  password: '',
-  port: 3306, // optional
-});
+import {
+   DataTypes ,
+   Model,
+   Database,
+   MySQLConnector,
+   SQLite3Connector,
+   PostgresConnector,
+   MongoDBConnector
+   } from './volca.ts';
+
+
+   const connector = new MySQLConnector({
+    database: 'volca',
+    host: '127.0.0.1',
+    username: 'root',
+    password: '',
+    port: 3306, // optional
+  });
+
+
+//  If you use Postgres
+//  const connector = new PostgresConnector({
+//    database: 'my-database',
+//    host: 'url-to-db.com',
+//    username: 'username',
+//    password: 'password',
+//    port: 5432, // optional
+//  });
+
+// If You use Sqlite
+// const connector = new SQLite3Connector({
+//   filepath: './database.sqlite',
+// });
+
+// // If You use MongoDB
+// const connector = new MongoDBConnector({
+//   uri: 'mongodb://127.0.0.1:27017',
+//   database: 'test',
+// });
+
+
+
+
 
 export const db = new Database(connector);
-
-export class Flight extends Model {
-    static table = 'flights';
-    static timestamps = true;
-  
-    static fields = {
-      id: { primaryKey: true, autoIncrement: true },
-      departure: DataTypes.STRING,
-      destination: DataTypes.STRING,
-      flightDuration: DataTypes.FLOAT,
-    };
-  
-    static defaults = {
-      flightDuration: 2.5,
-    };
-  }
-  db.link([Flight]);
-
- 

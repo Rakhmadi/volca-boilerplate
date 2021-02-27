@@ -1,9 +1,8 @@
 import {Router,Request} from '../volca.ts'
 import { example_controller } from '../controller/example_controller.ts'
 
-export let routers = ()=>{
+export let routers = async()=>{
 
-    Router.get('/',example_controller.index)
-    Router.get('/data',example_controller.data)
+    await Router.get('/',example_controller.index)
 
 }

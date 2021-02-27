@@ -1,4 +1,4 @@
-import {AppServe} from "./volca.ts"
+import {AppServe,Request} from "./volca.ts"
 import {routers} from './router/router.ts'
 import "https://deno.land/x/dotenv/load.ts";
 
@@ -7,8 +7,13 @@ let appServOpt = {
     port:Number(Deno.env.get('PORT'))
 }
 
-AppServe(async()=>{
+await AppServe(async()=>{
 
-    routers();
+    await routers();
 
-},appServOpt);
+},appServOpt,[(next:any)=>{
+    Request.addResponseHeader({
+        'Access-Control-Allow-Origin': '*'
+    })
+    next()
+}]);
