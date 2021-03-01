@@ -15,7 +15,7 @@ import {
    SQLite3Connector,
    PostgresConnector,
    MongoDBConnector
-   } from './volca.ts';
+   } from './volca_module.ts';
 
 
    const connector = new MySQLConnector({

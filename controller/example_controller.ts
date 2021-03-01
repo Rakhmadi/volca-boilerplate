@@ -1,4 +1,4 @@
-import { Request } from '../volca.ts'
+import { Request } from '../volca_module.ts'
 
 export class example_controller {
 
