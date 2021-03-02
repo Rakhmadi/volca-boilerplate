@@ -1,5 +1,5 @@
 import {Router,Request} from '../volca_module.ts'
-import { example_controller } from '../controller/example_controller.ts'
+import { example_controller } from '../controllers/example_controller.ts'
 
 export let routers = async()=>{
 
