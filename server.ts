@@ -11,6 +11,6 @@ let appServOpt = {
 
 await AppServe(async()=>{
 
-    await routers();
+     routers();
 
 },appServOpt,[cors]);
