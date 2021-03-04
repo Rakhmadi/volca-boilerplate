@@ -4,7 +4,7 @@ export class example_controller {
 
     static index(){
         return Request.toView('./views/wellcome.html',{
-            'content':'Wellcome To Volca'
+            'content':'Volca'
         })
     }
 
